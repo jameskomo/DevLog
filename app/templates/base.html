@@ -21,8 +21,11 @@
 
     {% endblock%}
     <!-- Content block -->
-
-
+    {% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('es','fr') }}
+    {% endblock %}
 </body>
 
 </html>
