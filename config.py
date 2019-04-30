@@ -6,7 +6,8 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    
+    LANGUAGES= ['en', 'fr', 'es']
+
     #  email configurations
     MAIL_SERVER ='smtp.gmail.com'
     MAIL_PORT = 587
@@ -23,6 +24,7 @@ class ProdConfig(Config):
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     DEBUG = True
+
 
 config_options = {
 'development':DevConfig,

@@ -4,9 +4,10 @@
 {{ super() }}
 <!-- <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}"> -->
 <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 {% endblock %}
 {% block content %}
-<blockquote class="text-center text-lg">
+<blockquote class="index-page text-center text-lg">
   <h2>Inspirational Quotes</h2>
   <p>{{quote.quote}}</p>
   <p class="sab">Author: {{quote.author}}</p>
@@ -15,6 +16,7 @@
     <h1 style='text-align:center;'>Welcome to Komo Blog</h1>
     <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
     <p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"><i class="fab fa-facebook"></i></a> 
   </div>
 
 

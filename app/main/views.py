@@ -1,4 +1,5 @@
 from flask import render_template,request,redirect,url_for,abort
+# from flask_babel import _
 from . import main
 from .forms import BlogForm,UpdateProfile,CommentForm,SubscribeForm
 from ..models import  User,Blog,Comment,Subscribe
