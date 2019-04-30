@@ -6,7 +6,7 @@ from flask_login import login_required,current_user
 from .. import db,photos
 from ..request import get_quotes
 from ..email import mail_message
-
+from datetime import datetime
 # Pitch = pitch.Pitch
 
 @main.route('/')
@@ -18,7 +18,7 @@ def index():
     title = 'Home- Welcome'
     all_blogs = Blog.query.all()
     quote=get_quotes()
-    return render_template('index.html', title = title,all_blogs=all_blogs, quote= quote)
+    return render_template('index.html', current_time=datetime.utcnow(), title = title,all_blogs=all_blogs, quote= quote)
 
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
