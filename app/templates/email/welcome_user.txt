@@ -1,0 +1,9 @@
+Hello {{user}}
+
+Welcome to Komo Blog
+
+We have just seen you have subscribed to my blog. Welcome and feel free to share your amazing blogs and event contribute to others.
+
+Yours Truly
+
+Komo Blog Team
