@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 {% endblock %}
 {% block content %}
-<blockquote class="index-page text-center text-lg">
+<blockquote class="content text-center text-lg">
   <h2>Inspirational Quotes</h2>
   <p>{{quote.quote}}</p>
   <p class="sab">Author: {{quote.author}}</p>
@@ -48,7 +48,7 @@
      title="Share by Email"><i class="fas fa-envelope-square"></i></a> -->
      <!-- AddToAny BEGIN -->
 <div>
-  <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:royalblue"></a>
+  <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:rgb(56, 64, 90)"></a>
   <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook_messenger.svg" width="32" height="32" style="background-color:royalblue"></a>
   <a href="https://www.addtoany.com/add_to/skype?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/skype.svg" width="32" height="32" style="background-color:royalblue"></a>
   <a href="https://www.addtoany.com/add_to/twitter?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
@@ -56,6 +56,11 @@
   <a href="https://www.addtoany.com/add_to/sms?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/sms.svg" width="32" height="32" style="background-color:royalblue"></a>
   <a href="https://www.addtoany.com/add_to/email?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/email.svg" width="32" height="32" style="background-color:royalblue"></a>
   </div>
+  
+  <div class="toggle btn btn-primary"></div>
+  {% block javascript %}
+  <script src="{{ url_for('static',filename='index.js') }}"></script>
+  {% endblock %}
   <!-- AddToAny END -->
           </div>
         </div>
@@ -66,4 +71,5 @@
 
   {% endfor %}
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   {% endblock%}
