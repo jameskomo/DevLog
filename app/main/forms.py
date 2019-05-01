@@ -22,5 +22,6 @@ class SubscribeForm(FlaskForm):
 
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
+    Stack = TextAreaField('Tell us your Tech stack.',validators = [Required()])
     submit = SubmitField('Submit')
 

@@ -45,6 +45,7 @@ class User(UserMixin,db.Model):
     comment = db.relationship('Comment',backref = 'user',lazy="dynamic")
     email = db.Column(db.String(255),unique = True,index = True)
     bio = db.Column(db.String(255))
+    stack = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure  = db.Column(db.String(255))
 
@@ -63,6 +64,8 @@ class User(UserMixin,db.Model):
         return check_password_hash(self.pass_secure,password)
     def __repr__(self):
         return f'User {self.username}'
+
+        
         
     
 class Blog(db.Model):
@@ -72,6 +75,7 @@ class Blog(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     blog = db.Column(db.String(255))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    blog_pic_path = db.Column(db.String())
     comment = db.relationship('Comment',backref = 'blogs',lazy="dynamic")
     
     def save_blogs(self):

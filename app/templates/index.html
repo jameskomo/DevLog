@@ -56,12 +56,13 @@
   <a href="https://www.addtoany.com/add_to/sms?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/sms.svg" width="32" height="32" style="background-color:royalblue"></a>
   <a href="https://www.addtoany.com/add_to/email?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/email.svg" width="32" height="32" style="background-color:royalblue"></a>
   </div>
-  
-  <div class="toggle btn btn-primary"></div>
-  {% block javascript %}
-  <script src="{{ url_for('static',filename='index.js') }}"></script>
-  {% endblock %}
   <!-- AddToAny END -->
+  <body id="body" class="dark-mode">
+    <h1>Dark/Light Mode Switcher</h1>
+     
+    <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
+    
+    <p>Just press the button above to toggle!</p>
           </div>
         </div>
       </div>
@@ -71,5 +72,4 @@
 
   {% endfor %}
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   {% endblock%}
