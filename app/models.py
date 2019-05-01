@@ -47,6 +47,7 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     stack = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
+    support_documents_path = db.Column(db.String())
     pass_secure  = db.Column(db.String(255))
 
 

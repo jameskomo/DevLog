@@ -3,15 +3,16 @@ from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import Required,Email,EqualTo
 from ..models import User
 from wtforms import ValidationError
-from wtforms import StringField,PasswordField,BooleanField,SubmitField
+from wtforms import StringField,PasswordField,TextAreaField, BooleanField,MultipleFileField, SubmitField
 
 class RegistrationForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
     username = StringField('Enter your username',validators = [Required()])
     password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
     password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
-    bio = StringField('Enter a brief bio about yourself',validators = [Required()])
-    stack = StringField('What is your tech stack',validators = [Required()])
+    bio = TextAreaField('Enter a brief bio about yourself',validators = [Required()])
+    stack = TextAreaField('What is your tech stack',validators = [Required()])
+    support_documents_path=MultipleFileField('Attach tech related support documentation here',validators = [Required()])
     submit = SubmitField('Sign Up')
 
     def validate_email(self,data_field):

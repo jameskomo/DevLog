@@ -3,7 +3,6 @@ from wtforms import StringField,TextAreaField,SubmitField
 from wtforms.validators import Required,Email
 from ..models import Subscribe
 class BlogForm(FlaskForm):
-   
     blog = TextAreaField('blog',validators=[Required()])
     submit = SubmitField('Submit')
 
@@ -22,6 +21,6 @@ class SubscribeForm(FlaskForm):
 
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
-    Stack = TextAreaField('Tell us your Tech stack.',validators = [Required()])
+    stack = TextAreaField('Tell us your Tech stack.',validators = [Required()])
     submit = SubmitField('Submit')
 
