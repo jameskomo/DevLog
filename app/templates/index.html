@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px; padding-bottom: 30px;">
   <div class="row">
     <div class="col-md-9">
 
@@ -39,30 +39,24 @@
             <p><a class="btn btn-light btn-xl sr-button" href="{{url_for('main.delete_blogs',id = blog.id)}}"> delete
                 blog</a></p>
               <!-- Social media sharing -->
-              <h4>Share Blog</h4>
-    <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=https://moringaschool.com/] target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.addtoany.com/add_to/twitter?linkurl=www.moringaschool.com&amp;linkname=" target="blank" ><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/shareArticle" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://wa.me/?text=[DevLog made for Devs] [https://moringaschool.com/]" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com."
-     title="Share by Email"><i class="fas fa-envelope-square"></i></a> -->
-     <!-- AddToAny BEGIN -->
+              <h5>Share Blog</h5>
+    
   <div>
-  <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:rgb(56, 64, 90)"></a>
-  <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook_messenger.svg" width="32" height="32" style="background-color:royalblue"></a>
-  <a href="https://www.addtoany.com/add_to/skype?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/skype.svg" width="32" height="32" style="background-color:royalblue"></a>
-  <a href="https://www.addtoany.com/add_to/twitter?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
-  <a href="https://www.addtoany.com/add_to/whatsapp?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/whatsapp.svg" width="32" height="32" style="background-color:royalblue"></a>
-  <a href="https://www.addtoany.com/add_to/sms?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/sms.svg" width="32" height="32" style="background-color:royalblue"></a>
-  <a href="https://www.addtoany.com/add_to/email?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/email.svg" width="32" height="32" style="background-color:royalblue"></a>
+  <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+  <a href="https://www.addtoany.com/add_to/skype?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-skype"></i></a>
+  <a href="https://www.addtoany.com/add_to/twitter?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-twitter"></i></a>
+  <a href="https://www.addtoany.com/add_to/whatsapp?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://www.addtoany.com/add_to/sms?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fas fa-sms"></i></a>
+  <a href="https://www.addtoany.com/add_to/email?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fas fa-envelope-square"></i></a>
   </div>
   <!-- AddToAny END -->
-  <body id="body" class="dark-mode">
+  <!-- <body id="body" class="dark-mode">
     <h1>Dark/Light Mode Switcher</h1>
      
     <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
     
-    <p>Just press the button above to toggle!</p>
+    <p>Just press the button above to toggle!</p> -->
           </div>
         </div>
       </div>
@@ -85,7 +79,7 @@
                 <ul class="list-group list-group-flush">
                    
                     <li class="list-group-item"> <p style="color:black;">The local date and time is {{ moment(current_time).format('LLL') }}.</p></li>
-                    <li class="list-group-item"> <p style="color:black;">You logged in {{ moment(current_time).fromNow(refresh=True) }} ago</p></li>
+                    <li class="list-group-item"> <p style="color:black;">You visited this website {{ moment(current_time).fromNow(refresh=True) }} ago</p></li>
                    
                 </ul>
             </div>
@@ -96,7 +90,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   {% for blog in all_blogs%}
-                    <li class="list-group-item"><p>{{blog.blog_title}}</p></li>
+                    <li class="list-group-item"><a href="{{url_for('main.view_blog',blog_id=blog.id)}}"><p>{{blog.blog_title}}</p></a></li>
 
                     {% endfor %}
                 </ul>
@@ -106,7 +100,7 @@
     </div>
   </div>
   </div>
-  <footer style="position: fixed; bottom: 0; width: 100%; height: 60px; line-height: 60px; background-color: #f5f5f5;"   class="footer bg bg-dark">
+  <footer style="position: fixed; bottom: 0; width: 100%; height: 60px; line-height: 60px; background-color: #f5f5f5; margin-top: 20px;"   class="footer bg bg-dark">
     <p style="color:bisque; text-align: center;">Copyright &copy; James, Simon and Mohammed</p>
     <br>
   </footer>

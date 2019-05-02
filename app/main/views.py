@@ -89,6 +89,13 @@ def new_blog():
 
     return render_template('new_blog.html', blog_form=blog_form)
 
+@main.route('/view_blog/<int:blog_id>', methods=["GET","POST"])
+@login_required
+def view_blog(blog_id):
+    blog_post = Blog.query.filter_by(id=blog_id).first()
+    return render_template('view_blog.html',blog_post=blog_post)
+
+
 @main.route('/comment/new/<int:id>', methods=['GET', 'POST'])
 @login_required
 def comment(id):
