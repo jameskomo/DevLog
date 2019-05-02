@@ -1,8 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField
+from wtforms import StringField,TextAreaField,SubmitField, FileField
 from wtforms.validators import Required,Email
 from ..models import Subscribe
+
 class BlogForm(FlaskForm):
+    blog_pic_path = FileField ('Blog Image',validators=[Required()])
     blog = TextAreaField('blog',validators=[Required()])
     submit = SubmitField('Submit')
 
