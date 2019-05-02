@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for,abort
+from flask import render_template,request,redirect,url_for,abort, session
 # from flask_babel import _
 from . import main
 from .forms import BlogForm,UpdateProfile,CommentForm,SubscribeForm
@@ -8,6 +8,7 @@ from .. import db,photos
 from ..request import get_quotes
 from ..email import mail_message
 from datetime import datetime
+from .forms import RoomLoginForm
 # Pitch = pitch.Pitch
 
 @main.route('/')
@@ -149,3 +150,29 @@ def delete_blogs(id):
     if blog is not None:
        blog.delete_blogs()
        return redirect(url_for('main.index'))
+
+# Chat Application Views
+
+@main.route('/room_login', methods=['GET', 'POST'])
+def main_chat():
+    """Login form to enter a room."""
+    form = RoomLoginForm()
+    if form.validate_on_submit():
+        session['name'] = form.name.data
+        session['room'] = form.room.data
+        return redirect(url_for('.chat'))
+    elif request.method == 'GET':
+        form.name.data = session.get('name', '')
+        form.room.data = session.get('room', '')
+    return render_template('chat_main.html', form=form)
+
+
+@main.route('/chat')
+def chat():
+    """Chat room. The user's name and room must be stored in
+    the session."""
+    name = session.get('name', '')
+    room = session.get('room', '')
+    if name == '' or room == '':
+        return redirect(url_for('.chat_main'))
+    return render_template('chat.html', name=name, room=room)

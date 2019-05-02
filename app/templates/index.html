@@ -2,7 +2,8 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 {% block styles%}
 {{ super() }}
-<!-- <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}"> -->
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 {% endblock %}
@@ -14,11 +15,7 @@
 
 
  <div class="container-fluid container">
-    <h1 style='text-align:center;'>Welcome to DevLog</h1>
-  
-    
-  <a class="btn btn-basic btn md" href="/new_blog">Add a new Blog</a>
-  <a class="btn btn-basic btn md" href="/subscribe" style="float:center;">subscribe</a>
+    <h1 class="main-heading" style='text-align:center;'>Welcome to DevLog</h1>  
   {% for blog in all_blogs %}
   <div class="container-fluid">
     <div class="card-deck">
@@ -90,7 +87,7 @@
 
             <div class="card" style="width: 18rem; margin-bottom: 25px;">
                 <div class="card-header">
-                    Latest Blogs
+                    Latest Blogs <a class="btn btn-basic btn md" href="/subscribe" style="float:center;">subscribe</a>
                 </div>
                 <ul class="list-group list-group-flush">
                   {% for blog in all_blogs%}

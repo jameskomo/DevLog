@@ -8,6 +8,7 @@ from flask_login import LoginManager
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
 from flask_babel import Babel
+from flask_socketio import SocketIO
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -18,6 +19,7 @@ bootstrap = Bootstrap()
 photos = UploadSet('photos',IMAGES)
 mail = Mail()
 babel = Babel()
+socketio = SocketIO()
 global translate
 
 def create_app(config_name):
@@ -44,6 +46,8 @@ def create_app(config_name):
     db.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
+    socketio.init_app(app)
+
     
     # configure UploadSet
     configure_uploads(app,photos)
