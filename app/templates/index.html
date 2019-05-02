@@ -5,18 +5,17 @@
 <!-- <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}"> -->
 <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
 {% endblock %}
+
 {% block content %}
-<blockquote class="content text-center text-lg">
-  <h2>Inspirational Quotes</h2>
-  <p>{{quote.quote}}</p>
-  <p class="sab">Author: {{quote.author}}</p>
-  <br><br>
-  <div class="container-fluid container">
-    <h1 style='text-align:center;'>Welcome to Komo Blog</h1>
-    <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
-    <p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+
+
+ <div class="container-fluid container">
+    <h1 style='text-align:center;'>Welcome to DevLog</h1>
+  
     
   <a class="btn btn-basic btn md" href="/new_blog">Add a new Blog</a>
   <a class="btn btn-basic btn md" href="/subscribe" style="float:center;">subscribe</a>
@@ -73,4 +72,44 @@
 
   {% endfor %}
   </div>
-  {% endblock%}
+ 
+    </div>
+    <div class="col-md-3">
+        <aside class="col-md-4">
+            <div class="card" style="width: 18rem; margin-bottom: 25px;">
+                <div class="card-header">
+                    Stacks
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fab fa-python"></i> Python</li>
+                    <li class="list-group-item"><i class="fab fa-java"></i> Java</li>
+                    <li class="list-group-item"><i class="fab fa-js"></i> JavaScript</li>
+                    <li class="list-group-item"><i class="fab fa-cuttlefish"></i> C</li>
+                    <li class="list-group-item"><i class="fab fa-php"></i> PHP</li>
+                </ul>
+            </div>
+      
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Frameworks
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fab fa-angular"></i> Angular</li>
+                    <li class="list-group-item"><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                    <li class="list-group-item"><i class="fab fa-vuejs"></i> Vue</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+  </div>
+</div>
+<footer class="footer bg bg-dark">
+    <div class="container">
+    <p style="color:bisque; text-align: center;">Copyright &copy; James, Simon and Mohammed</p>
+    <p style="color:bisque; text-align: center;">The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+    <p style="color:bisque; text-align: center;">You logged in {{ moment(current_time).fromNow(refresh=True) }} ago</p>
+    <br>
+     </div>
+</footer>
+
+{% endblock%}

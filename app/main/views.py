@@ -41,6 +41,7 @@ def update_profile(uname):
 
     if form.validate_on_submit():
         user.bio = form.bio.data
+        user.stack= form.stack.data
 
         db.session.add(user)
         db.session.commit()

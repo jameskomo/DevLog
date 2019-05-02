@@ -5,38 +5,69 @@
 <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
 {% endblock %}
 {% block content %}
-<div class="container">
-  <div class="row">
-    <!-- displaying  Username-->
-    <div class="col-md-4">
-      <h3> {{user.username| capitalize}} </h3>
+<div style="padding-top: 25px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style>
+                <div class="card">
+                    <div class="card-header">
+                        <div style="text-align: center;">
+                                    <!-- Profile pic goes here -->
+                                    {% if user.profile_pic_path %}
+                                    <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" style="border-radius: 50%; width: 150px; height: 150px;" class="img-thumbnail">
+                                    {%else%}
+                                    <p>No profile picture</p>
+                                    {% endif %}
+                                    <!-- Username goes here -->
+                                    <h5 class="card-title">{{user.username| capitalize}}</h5>
 
-      <!--Displaying user bio-->
-      {% if user.bio %}
-      <p> {{user.bio}}</p>
-      {%else%}
-      <p> {{user.username| capitalize}} has no bio </p>
-      {% endif %}
+                                    <!-- Toggle profile picture here -->
+                                    <a class="toggle btn btn-primary" style="margin-bottom: 15px;"><i class="fas fa-upload"></i> Upload Profile Picture</a>
+
+                                    <!-- Upload profile pic here -->
+                                    <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype ="multipart/form-data" class="upload">
+                                    <div class="custom-file">
+                                            <label class="custom-file-label" for="inputGroupFile01">Upload Picture</label>
+                                        <input type="file" name="photo" class="custom-file-input" id="inputGroupFile01" required>
+                                    </div>
+                                    <input class="btn btn-success" type="submit">
+                                    </form>
+                               {% block script %}
+                                    <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            $(".toggle").click(function(){
+                                                $(".upload").toggle();
+                                            });
+                                        });
+                                    </script>
+                                {% endblock %}
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- Bio goes here -->
+                        <div style="text-align: center;">
+                            <h5 class="card-title text-center" style="text-align: center;">Bio</h5>
+                            {% if user.bio %}
+                            <p> {{user.bio}}</p>
+                            {%else%}
+                            <p> {{user.username| capitalize}} has no bio </p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Description goes here -->
+                        <div style="text-align: center;">
+                            <h5 class="card-title text-center">Stack</h5>
+                            <p>{{user.stack}}</p>
+                        </div>
+                        
+                        <a style="text-align: center;" class="btn btn-success" href="{{url_for('main.update_profile',uname=user.username)}}">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
     </div>
-
-    <!--Display profile photo-->
-    <div class="col-md-4">
-
-      {% if user.profile_pic_path %}
-      <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-      {%else%}
-      <p>No profile picture</p>
-      {% endif %}
-      {% if user == current_user %}
-      <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype="multipart/form-data">
-
-        <input type="file" name="photo" class="form-control" required>
-        <input type="submit">
-      </form>
-      <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-      {% endif %}
-    </div>
-
-  </div>
 </div>
 {% endblock %}
