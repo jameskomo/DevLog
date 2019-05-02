@@ -74,8 +74,8 @@ def profile(uname):
 @login_required
 def new_blog():
     blog_form = BlogForm()
-    
-    if blog_form.validate_on_submit():
+    path = None
+    if blog_form.validate_on_submit():       
         
         blog = blog_form.blog.data
         blog_title = blog_form.blog_title.data

@@ -23,14 +23,18 @@
   <div class="container-fluid">
     <div class="card-deck">
       <div class="card">
+        
+        <img src="../static/photos/blog_pic1.jpeg" class="card-img-top" alt="{{blog.blog_title}}">
+        
         <div class="card-body">
-            <p>{{blog.blog_title}}</p>
-          <p>{{blog.blog}}</p>
+          <div class="row" style="margin-left: 10px; margin-right: 10px;">
+              <p style="margin-right: 10px;"><strong>Title: </strong><em>{{blog.blog_title}}</em></p>  
+              <p style="margin-right: 10px;"><strong>Author:</strong> <em>{{blog.user}}</em>,</p>
+              <p><em>3:43 pm</em></p>
+              <p>{{blog.blog}}</p>
+          </div>
+          </div>
 
-        </div>
-        <div class="card-header" style='text-align:center;'>
-          <h5>{{blog.user}}</h5>
-        </div>
 
         <br>
         <div class="card-footer">
