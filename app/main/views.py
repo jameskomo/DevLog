@@ -78,8 +78,9 @@ def new_blog():
     if blog_form.validate_on_submit():
         
         blog = blog_form.blog.data
+        blog_title = blog_form.blog_title.data
         # user_id = blog_form.user_id.data
-        new_blog = Blog(blog=blog,user_id=current_user.id)
+        new_blog = Blog(blog=blog,blog_title=blog_title,user_id=current_user.id)
         new_blog.save_blogs() 
         subscriber=Subscribe.query.all()
         for subscribe in subscriber:

@@ -5,6 +5,7 @@ from ..models import Subscribe
 
 class BlogForm(FlaskForm):
     blog_pic_path = FileField ('Blog Image',validators=[Required()])
+    blog_title = StringField('Blog Title')
     blog = TextAreaField('blog',validators=[Required()])
     submit = SubmitField('Submit')
 

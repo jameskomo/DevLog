@@ -24,7 +24,7 @@
     <div class="card-deck">
       <div class="card">
         <div class="card-body">
-
+            <p>{{blog.blog_title}}</p>
           <p>{{blog.blog}}</p>
 
         </div>
@@ -47,7 +47,7 @@
     <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com."
      title="Share by Email"><i class="fas fa-envelope-square"></i></a> -->
      <!-- AddToAny BEGIN -->
-<div>
+  <div>
   <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:rgb(56, 64, 90)"></a>
   <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook_messenger.svg" width="32" height="32" style="background-color:royalblue"></a>
   <a href="https://www.addtoany.com/add_to/skype?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/skype.svg" width="32" height="32" style="background-color:royalblue"></a>
@@ -81,11 +81,10 @@
                     Stacks
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fab fa-python"></i> Python</li>
-                    <li class="list-group-item"><i class="fab fa-java"></i> Java</li>
-                    <li class="list-group-item"><i class="fab fa-js"></i> JavaScript</li>
-                    <li class="list-group-item"><i class="fab fa-cuttlefish"></i> C</li>
-                    <li class="list-group-item"><i class="fab fa-php"></i> PHP</li>
+                  {% for blog in all_blogs%}
+                    <li class="list-group-item"><p>{{blog.blog_title}}</p></li>
+
+                    {% endfor %}
                 </ul>
             </div>
       
@@ -102,14 +101,14 @@
         </aside>
     </div>
   </div>
-</div>
-<footer class="footer bg bg-dark">
+  </div>
+  <footer class="footer bg bg-dark">
     <div class="container">
     <p style="color:bisque; text-align: center;">Copyright &copy; James, Simon and Mohammed</p>
     <p style="color:bisque; text-align: center;">The local date and time is {{ moment(current_time).format('LLL') }}.</p>
     <p style="color:bisque; text-align: center;">You logged in {{ moment(current_time).fromNow(refresh=True) }} ago</p>
     <br>
      </div>
-</footer>
+  </footer>
 
 {% endblock%}
