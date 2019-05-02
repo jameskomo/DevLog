@@ -75,7 +75,7 @@ class Blog(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     blog_title=db.Column(db.String(255))
-    blog = db.Column(db.String(255))
+    blog = db.Column(db.String())
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     blog_pic_path = db.Column(db.String())
     comment = db.relationship('Comment',backref = 'blogs',lazy="dynamic")

@@ -9,32 +9,33 @@
 
 <div class="card-deck">
         <div class="card">
-          <div class="card-body">
-              <p>{{blog_post.blog_title}}</p>
-            <p>{{blog_post.blog}}</p>
-  
-          </div>
+         
           <div class="card-header" style='text-align:center;'>
-            <h5>{{blog_post.user}}</h5>
+            <p><strong>Title: {{blog_post.blog_title}}</strong></p>
           </div>
-  
+          <div class="card-body">
+                <p><h5>Author: {{blog_post.user}}</h5></p>
+                <p>{{blog_post.blog}}</p>
+            </div>
           <br>
-          <div class="card-footer">
+        <div class="card-footer row">
             <div class="container-fluid write">
               <a class="btn btn-basic btn-md" href="/comment/new/{{blog_post.id}}">Write comment</a>
               <p><a class="btn btn-light btn-xl sr-button" href="{{url_for('main.delete_blogs',id = blog_post.id)}}"> delete
                   blog</a></p>
                 <!-- Social media sharing -->
                 <h5>Share Blog</h5>
+            
       
-    <div>
-    <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
-    <a href="https://www.addtoany.com/add_to/skype?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-skype"></i></a>
-    <a href="https://www.addtoany.com/add_to/twitter?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.addtoany.com/add_to/whatsapp?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.addtoany.com/add_to/sms?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fas fa-sms"></i></a>
-    <a href="https://www.addtoany.com/add_to/email?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fas fa-envelope-square"></i></a>
-    </div>
-
+            <div>
+            <a href="https://www.addtoany.com/add_to/facebook?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+            <a href="https://www.addtoany.com/add_to/skype?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-skype"></i></a>
+            <a href="https://www.addtoany.com/add_to/twitter?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.addtoany.com/add_to/whatsapp?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.addtoany.com/add_to/sms?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fas fa-sms"></i></a>
+            <a href="https://www.addtoany.com/add_to/email?linkurl=www.moringaschool.com&amp;linkname=" target="_blank"><i class="fas fa-envelope-square"></i></a>
+            </div>
+        </div>
+        </div>
 {% endblock %}
